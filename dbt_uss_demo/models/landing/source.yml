@@ -1,5 +1,0 @@
-version: 2 
-
-sources:
-  - name: _landing
-    description: "Landing zone for raw data"

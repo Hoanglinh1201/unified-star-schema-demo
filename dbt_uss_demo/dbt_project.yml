@@ -19,9 +19,6 @@ clean-targets:
 
 models:
   dbt_uss_demo:
-    staging:
-      +materialized: table
-      +schema: staging
     core:
       +materialized: table
       +schema: core

@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: landing
+    description: "Raw tables from the Brazilian E-Commerce Public Dataset by Olist"
+    schema: _LANDING
+    tables:
+      - name: olist_order_reviews_dataset
+        description: "Customer reviews written about each order."
+        columns:
+          - name: review_id
+            description: "Unique identifier of the review"
+          - name: order_id
+            description: "Order associated with the review"
+          - name: review_score
+            description: "Star rating from 1 to 5"
+          - name: review_comment_title
+            description: "Title of the review comment"
+          - name: review_comment_message
+            description: "Full text of the customer review"
+          - name: review_creation_date
+            description: "Date the review was created"
+          - name: review_answer_timestamp
+            description: "When Olist answered or dealt with the review"
