@@ -1,0 +1,45 @@
+[0m12:46:47.385429 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112b97e00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11475bc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11475bed0>]}
+
+
+============================== 12:46:47.407952 | fc333e84-8af7-416e-99af-062cc84190ef ==============================
+[0m12:46:47.407952 [info ] [MainThread]: Running with dbt=1.9.8
+[0m12:46:47.408381 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/linhnguyen/.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': 'logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt init', 'send_anonymous_usage_stats': 'True'}
+[0m12:47:40.495494 [debug] [MainThread]: Starter project path: /Users/linhnguyen/visual_code/linh/unified-star-schema-demo/.venv/lib/python3.13/site-packages/dbt/include/starter_project
+[0m12:47:40.500074 [info ] [MainThread]: 
+Your new dbt project "dbt_uss_demo" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m12:47:40.500464 [info ] [MainThread]: Setting up your profile.
+[0m12:47:45.442940 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 58.09557, "process_in_blocks": "0", "process_kernel_time": 0.425581, "process_mem_max_rss": "157188096", "process_out_blocks": "0", "process_user_time": 1.610947}
+[0m12:47:45.443362 [debug] [MainThread]: Command `dbt init` succeeded at 12:47:45.443298 after 58.10 seconds
+[0m12:47:45.443618 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1149ecb00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11495c710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147d39b0>]}
+[0m12:47:45.443860 [debug] [MainThread]: Flushing usage events
+[0m12:47:46.224626 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:03:55.562264 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107b79be0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110ffb9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110ffbc50>]}
+
+
+============================== 14:03:55.583233 | 7209083a-fc42-4c29-b491-dd9edf885401 ==============================
+[0m14:03:55.583233 [info ] [MainThread]: Running with dbt=1.9.8
+[0m14:03:55.583759 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/linhnguyen/.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run', 'send_anonymous_usage_stats': 'True'}
+[0m14:03:55.584164 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/linhnguyen/visual_code/linh/unified-star-schema-demo/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m14:03:55.732174 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.2136712, "process_in_blocks": "0", "process_kernel_time": 0.354548, "process_mem_max_rss": "149651456", "process_out_blocks": "0", "process_user_time": 1.60488}
+[0m14:03:55.732669 [debug] [MainThread]: Command `dbt run` failed at 14:03:55.732608 after 0.21 seconds
+[0m14:03:55.732945 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111119480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11112d910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111154050>]}
+[0m14:03:55.733203 [debug] [MainThread]: Flushing usage events
+[0m14:03:56.369442 [debug] [MainThread]: An error was encountered while trying to flush usage events

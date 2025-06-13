@@ -1,0 +1,8 @@
+dbt_uss_demo:
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/aj_job_market.duckdb
+      threads: 1
+
+  target: dev

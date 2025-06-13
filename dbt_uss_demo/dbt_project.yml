@@ -1,0 +1,32 @@
+name: 'dbt_uss_demo'
+version: '1.0.0'
+
+profile: 'dbt_uss_demo'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:        
+  - "target"
+  - "dbt_packages"
+
+
+# Configuring models
+
+models:
+  dbt_uss_demo:
+    staging:
+      +materialized: table
+      +schema: staging
+    core:
+      +materialized: table
+      +schema: core
+    presentation:
+      +materialized: view
+      +schema: presentation
+    
+

@@ -1,0 +1,13 @@
+[project]
+name = "unified-star-schema-demo"
+version = "0.1.0"
+description = "Demostraterate the unified star schema approach with dbt and lightdash"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dbt-core>=1.9.8",
+    "dbt-duckdb>=1.9.3",
+    "lightdash>=0.2.4",
+    "duckdb>=0.8.0",
+    "rich==13.7.1",
+]

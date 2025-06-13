@@ -1,0 +1,5 @@
+# Ignore .venv
+.venv/
+
+# Ignore data 
+data/
