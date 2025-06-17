@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: landing
+  - name: olist
     description: "Translates the product_category_name to english."
     schema: _LANDING
     tables:

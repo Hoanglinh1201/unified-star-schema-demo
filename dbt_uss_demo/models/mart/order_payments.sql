@@ -1,18 +1,7 @@
 select
-    payment_sequential
-        as payment_type,
+    payment_id as _key_payment_id,
+    payment_id,
+    payment_type,
     payment_installments,
-    payment_value,
-    md5(
-        concat(
-            order_id::text,
-            payment_sequential::text
-        )
-    ) as payment_id,
-    md5(
-        concat(
-            order_id::text,
-            payment_sequential::text
-        )
-    ) as _key_payment_id
-from {{ source('landing', 'order_payments') }}
+    payment_value
+from {{ ref('stg_order_payments') }}
