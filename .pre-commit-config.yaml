@@ -1,0 +1,90 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: mixed-line-ending
+
+  - repo: https://github.com/asottile/reorder_python_imports
+    rev: v3.15.0
+    hooks:
+      - id: reorder-python-imports
+        args: [--py3-plus]
+
+  - repo: local
+    hooks:
+      - id: ruff-formatter
+        name: ruff formatter
+        entry: uv run --active ruff format .
+        language: system
+        types: [python]
+      - id: ruff-linter
+        name: ruff linter
+        language: system
+        types: [python]
+        entry: uv run --active ruff check .
+
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 3.4.1
+    hooks:
+      - id: sqlfluff-lint
+        args:
+          - dbt_uss_demo/models
+          - --dialect=duckdb
+          - --config=.sqlfluff
+        additional_dependencies:
+          - sqlfluff-templater-dbt
+          - dbt-duckdb
+      - id: sqlfluff-fix
+        args:
+          - dbt_uss_demo/models
+          - --dialect=duckdb
+          - --config=.sqlfluff
+        additional_dependencies:
+          - sqlfluff-templater-dbt
+          - dbt-duckdb
+
+  - repo: https://github.com/dbt-checkpoint/dbt-checkpoint
+    rev: v2.0.7
+    hooks:
+      - id: dbt-parse
+        args:
+          - --cmd-flags
+          - ++profiles-dir
+          - dbt_uss_demo
+          - ++project-dir
+          - dbt_uss_demo
+
+      # - id: dbt-docs-generate
+      #   args:
+      #     - --cmd-flags
+      #     - --profiles-dir
+      #     - dbt_uss_demo
+      #     - --project-dir
+      #     - dbt_uss_demo
+      #     - --no-compile
+
+      - id: check-script-semicolon
+        args:
+          - --manifest
+          - dbt_uss_demo/target/manifest.json
+
+      - id: check-script-has-no-table-name
+        args:
+          - --manifest
+          - dbt_uss_demo/target/manifest.json
+
+      # - id: check-model-has-all-columns
+      #   args:
+      #     - --manifest
+      #     - dbt_uss_demo/target/manifest.json
+      #     - --catalog
+      #     - dbt_uss_demo/target/catalog.json
+
+      - id: check-model-columns-have-desc
+        args:
+          - --manifest
+          - dbt_uss_demo/target/manifest.json
