@@ -1034,7 +1034,6 @@ dependencies = [
     { name = "lightdash" },
     { name = "rich" },
     { name = "ruff" },
-    { name = "sqlfluff" },
     { name = "sqlfluff-templater-dbt" },
 ]
 
@@ -1046,7 +1045,6 @@ requires-dist = [
     { name = "lightdash", specifier = ">=0.2.4" },
     { name = "rich", specifier = "==13.7.1" },
     { name = "ruff", specifier = ">=0.11.13" },
-    { name = "sqlfluff", extras = ["dbt"], specifier = ">=3.4.1" },
     { name = "sqlfluff-templater-dbt", specifier = ">=3.4.1" },
 ]
 
