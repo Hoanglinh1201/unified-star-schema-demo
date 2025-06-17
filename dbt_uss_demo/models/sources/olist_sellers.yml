@@ -5,7 +5,8 @@ sources:
     description: "Raw tables from the Brazilian E-Commerce Public Dataset by Olist"
     schema: _LANDING
     tables:
-      - name: olist_sellers_dataset
+      - name: sellers
+        identifier: olist_sellers_dataset
         description: "Information about the sellers registered on the platform."
         columns:
           - name: seller_id

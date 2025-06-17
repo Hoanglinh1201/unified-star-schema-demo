@@ -10,4 +10,6 @@ dependencies = [
     "lightdash>=0.2.4",
     "duckdb>=0.8.0",
     "rich==13.7.1",
+    "sqlfluff[dbt]>=3.4.1",
+    "sqlfluff-templater-dbt>=3.4.1",
 ]
