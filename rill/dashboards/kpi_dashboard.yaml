@@ -4,7 +4,7 @@
 type: canvas
 display_name: "Canvas Dashboard"
 defaults:
-  time_range: PT24H
+  time_range: P24M
   comparison_mode: time
 rows:
   - items:
