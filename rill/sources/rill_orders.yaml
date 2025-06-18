@@ -2,4 +2,4 @@ type: source
 
 connector: "duckdb"
 db: "../data/olist.duckdb"
-sql: "select * from rill.uss_orders"
+sql: "select * from mart.uss_orders"
