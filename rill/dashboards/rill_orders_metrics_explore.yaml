@@ -1,0 +1,10 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/explore-dashboards
+
+type: explore
+
+display_name: "Rill Orders Metrics dashboard"
+metrics_view: rill_orders_metrics
+
+dimensions: '*'
+measures: '*'

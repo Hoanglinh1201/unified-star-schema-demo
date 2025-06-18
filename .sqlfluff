@@ -6,8 +6,8 @@ max_line_length = 80
 indent_unit = space
 
 [sqlfluff:templater:dbt]
-project_dir = ./dbt_uss_demo
-profiles_dir = ./dbt_uss_demo
+project_dir = ./dbt
+profiles_dir = ./dbt
 
 [sqlfluff:indentation]
 tab_space_size = 4
@@ -17,7 +17,7 @@ indent_unit = space
 line_position = trailing
 spacing_before = touch
 
-[sqlfluff:rules:capitalisation.keywords] 
+[sqlfluff:rules:capitalisation.keywords]
 capitalisation_policy = lower
 
 [sqlfluff:rules:aliasing.table]

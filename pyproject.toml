@@ -31,6 +31,8 @@ lint.ignore = [
     "A003",
     # Limiting the length of error messages isn't particularly useful
     "TRY003",
+    "TRY002",
+    "G004",
 ]
 lint.select = [
     "A",   # flake8-builtin"

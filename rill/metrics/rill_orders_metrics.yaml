@@ -1,0 +1,116 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+version: 1
+type: metrics_view
+
+display_name: Rill Orders Metrics
+model: rill_orders
+timeseries: order_purchase_timestamp
+
+dimensions:
+  - name: order_id
+    display_name: Order Id
+    column: order_id
+  - name: order_status
+    display_name: Order Status
+    column: order_status
+  - name: order_item_id
+    display_name: Order Item Id
+    column: order_item_id
+  - name: customer_id
+    display_name: Customer Id
+    column: customer_id
+  - name: customer_city
+    display_name: Customer City
+    column: customer_city
+  - name: customer_state
+    display_name: Customer State
+    column: customer_state
+  - name: seller_id
+    display_name: Seller Id
+    column: seller_id
+  - name: seller_city
+    display_name: Seller City
+    column: seller_city
+  - name: seller_state
+    display_name: Seller State
+    column: seller_state
+  - name: product_id
+    display_name: Product Id
+    column: product_id
+  - name: product_category_name
+    display_name: Product Category Name
+    column: product_category_name
+  - name: product_category_name_english
+    display_name: Product Category Name English
+    column: product_category_name_english
+  - name: review_id
+    display_name: Review Id
+    column: review_id
+  - name: review_comment_title
+    display_name: Review Comment Title
+    column: review_comment_title
+  - name: review_comment_message
+    display_name: Review Comment Message
+    column: review_comment_message
+  - name: payment_id
+    display_name: Payment Id
+    column: payment_id
+  - name: payment_type
+    display_name: Payment Type
+    column: payment_type
+
+measures:
+  - name: total_orders_measure
+    display_name: Total Orders
+    expression: COUNT(order_id)
+    description: The total number of orders placed.
+    format_preset: humanize
+  - name: total_revenue_measure
+    display_name: Total Revenue
+    expression: SUM(price)
+    description: The total revenue generated from all orders.
+    format_preset: humanize
+  - name: average_order_value_measure
+    display_name: Average Order Value
+    expression: AVG(price)
+    description: The average value of an order.
+    format_preset: humanize
+  - name: total_freight_value_measure
+    display_name: Total Freight Value
+    expression: SUM(freight_value)
+    description: The total freight value for all orders.
+    format_preset: humanize
+  - name: average_freight_value_measure
+    display_name: Average Freight Value
+    expression: AVG(freight_value)
+    description: The average freight value per order.
+    format_preset: humanize
+  - name: total_payment_value_measure
+    display_name: Total Payment Value
+    expression: SUM(payment_value)
+    description: The total payment value received from all orders.
+    format_preset: humanize
+  - name: average_payment_value_measure
+    display_name: Average Payment Value
+    expression: AVG(payment_value)
+    description: The average payment value per order.
+    format_preset: humanize
+  - name: total_products_sold_measure
+    display_name: Total Products Sold
+    expression: COUNT(product_id)
+    description: The total number of products sold.
+    format_preset: humanize
+  - name: average_review_score_measure
+    display_name: Average Review Score
+    expression: AVG(review_score)
+    description: The average score of all product reviews.
+    format_preset: humanize
+  - name: total_installments_measure
+    display_name: Total Installments
+    expression: SUM(payment_installments)
+    description: The total number of payment installments across all orders.
+    format_preset: humanize
+smallest_time_grain: day

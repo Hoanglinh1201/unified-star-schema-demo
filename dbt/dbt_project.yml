@@ -23,5 +23,5 @@ models:
       materialized: table
       schema: staging
     mart:
-      materialized: view
+      materialized: table
       schema: mart
