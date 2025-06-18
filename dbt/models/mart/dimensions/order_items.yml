@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: order_items
+    description: "Order item dimension."
+    columns:
+      - name: _key_order_item_id
+        description: "Bridge key for the order item."
+      - name: order_item_id
+        description: "Unique identifier for an order item."
+      - name: shipping_limit_date
+        description: "Shows the seller shipping limit date for handling the order over to the logistic partner."
+      - name: price
+        description: "Item price"
+      - name: freight_value
+        description: "Item freight value"

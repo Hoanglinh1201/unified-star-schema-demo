@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: products
+    description: "Product dimension with physical attributes and category information."
+    columns:
+      - name: _key_product_id
+        description: "Bridge key for the product."
+      - name: product_id
+        description: "Unique identifier of the product."
+      - name: product_category_name
+        description: "Product category in Portuguese."
+      - name: product_name_lenght
+        description: "Length of the product name."
+      - name: product_description_lenght
+        description: "Length of the product description."
+      - name: product_photos_qty
+        description: "Number of product photos available."
+      - name: product_weight_g
+        description: "Weight of the product in grams."
+      - name: product_length_cm
+        description: "Length of the product in centimeters."
+      - name: product_height_cm
+        description: "Height of the product in centimeters."
+      - name: product_width_cm
+        description: "Width of the product in centimeters."
+      - name: product_category_name_english
+        description: "Product category translated to English."

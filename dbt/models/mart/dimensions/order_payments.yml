@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: order_payments
+    description: "Order payment dimension."
+    columns:
+      - name: _key_order_payment_id
+        description: "Bridge key for the order payment."
+      - name: payment_id
+        description: "Synthetic identifier for the payment row."
+      - name: payment_type
+        description: "Method of payment, such as credit card or voucher."
+      - name: payment_installments
+        description: "Number of payment installments."
+      - name: payment_value
+        description: "Monetary value paid in this transaction."
