@@ -7,22 +7,22 @@ models:
       - name: uss_stage
         description: "Type of record loaded into the bridge (e.g., Order, Customer, Seller)."
       - name: _key_order_id
-        description: "Surrogate key for the order."
+        description: "Bridge key for the order."
       - name: _key_product_id
-        description: "Surrogate key for the product."
+        description: "Bridge key for the product."
       - name: _key_order_item_id
-        description: "Surrogate key for the order item."
+        description: "Bridge key for the order item."
       - name: _key_order_payment_id
-        description: "Surrogate key for the order payment."
+        description: "Bridge key for the order payment."
       - name: _key_order_review_id
-        description: "Surrogate key for the order review."
+        description: "Bridge key for the order review."
       - name: _key_seller_id
-        description: "Surrogate key for the seller."
+        description: "Bridge key for the seller."
       - name: _key_seller_geo_id
-        description: "Surrogate key for the seller geolocation."
+        description: "Bridge key for the seller geolocation."
       - name: _key_customer_id
-        description: "Surrogate key for the customer."
+        description: "Bridge key for the customer."
       - name: _key_customer_geo_id
-        description: "Surrogate key for the customer geolocation."
+        description: "Bridge key for the customer geolocation."
       - name: _key_user_id
-        description: "Surrogate key for the user."
+        description: "Bridge key for the user."

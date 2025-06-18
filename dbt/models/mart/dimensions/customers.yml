@@ -5,6 +5,6 @@ models:
     description: "Customer dimension."
     columns:
       - name: _key_customer_id
-        description: "Surrogate key for the customer."
+        description: "Bridge key for the customer."
       - name: customer_id
         description: "Unique identifier of the customer in Olist."

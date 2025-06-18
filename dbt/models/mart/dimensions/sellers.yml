@@ -5,6 +5,6 @@ models:
     description: "Seller dimension."
     columns:
       - name: _key_seller_id
-        description: "Surrogate key for the seller."
+        description: "Bridge key for the seller."
       - name: seller_id
         description: "Unique identifier of the seller in Olist."

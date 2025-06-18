@@ -5,12 +5,12 @@ models:
     description: "Order item dimension."
     columns:
       - name: _key_order_item_id
-        description: "Surrogate key for the order item."
+        description: "Bridge key for the order item."
       - name: order_item_id
-        description: "Unique identifier for an item within an order."
+        description: "Unique identifier for an order item."
       - name: shipping_limit_date
-        description: "Latest date for the seller to ship the item."
+        description: "Shows the seller shipping limit date for handling the order over to the logistic partner."
       - name: price
-        description: "Item price paid by the customer."
+        description: "Item price"
       - name: freight_value
-        description: "Freight cost associated with the item."
+        description: "Item freight value"

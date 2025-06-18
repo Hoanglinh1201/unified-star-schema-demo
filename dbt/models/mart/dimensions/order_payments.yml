@@ -5,7 +5,7 @@ models:
     description: "Order payment dimension."
     columns:
       - name: _key_order_payment_id
-        description: "Surrogate key for the order payment."
+        description: "Bridge key for the order payment."
       - name: payment_id
         description: "Synthetic identifier for the payment row."
       - name: payment_type

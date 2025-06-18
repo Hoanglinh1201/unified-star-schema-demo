@@ -5,7 +5,7 @@ models:
     description: "User dimension created from distinct customer identifiers."
     columns:
       - name: _key_user_id
-        description: "Surrogate key for the user."
+        description: "Bridge key for the user."
       - name: user_id
         description: "Identifier shared across multiple orders for the same user."
       - name: user_name

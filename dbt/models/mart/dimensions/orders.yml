@@ -5,7 +5,7 @@ models:
     description: "Order dimension with status and delivery dates."
     columns:
       - name: _key_order_id
-        description: "Surrogate key for the order."
+        description: "Bridge key for the order."
       - name: order_id
         description: "Unique identifier of the order."
       - name: order_status

@@ -5,7 +5,7 @@ models:
     description: "Geographic dimension derived from zip codes."
     columns:
       - name: _key_geolocation_id
-        description: "Surrogate key for the geolocation."
+        description: "Bridge key for the geolocation."
       - name: geolocation_id
         description: "Zip code prefix representing the location."
       - name: geo_latitude

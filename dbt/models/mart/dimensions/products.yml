@@ -5,7 +5,7 @@ models:
     description: "Product dimension with physical attributes and category information."
     columns:
       - name: _key_product_id
-        description: "Surrogate key for the product."
+        description: "Bridge key for the product."
       - name: product_id
         description: "Unique identifier of the product."
       - name: product_category_name
