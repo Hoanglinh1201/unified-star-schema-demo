@@ -3,8 +3,39 @@
 
 type: explore
 
-display_name: "Rill Orders Metrics dashboard"
+display_name: "Olist Store"
 metrics_view: rill_orders_metrics
 
 dimensions: '*'
 measures: '*'
+time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC
+defaults:
+  measures:
+    - average_order_value_measure
+    - average_payment_installments_measure
+    - average_payment_value_measure
+    - average_review_score_measure
+    - average_time_to_delivery_measure
+    - total_orders_measure
+    - total_payment_value_measure
+    - total_products_sold_measure
+    - total_revenue_measure
+  dimensions:
+    - product_category_name_english
