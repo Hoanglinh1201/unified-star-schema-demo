@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: geolocations
+    description: "Geographic dimension derived from zip codes."
+    columns:
+      - name: _key_geolocation_id
+        description: "Bridge key for the geolocation."
+      - name: geolocation_id
+        description: "Zip code prefix representing the location."
+      - name: geo_latitude
+        description: "Latitude coordinate."
+      - name: geo_longitude
+        description: "Longitude coordinate."
+      - name: geo_city
+        description: "City name for the zip code."
+      - name: geo_state
+        description: "State abbreviation for the zip code."

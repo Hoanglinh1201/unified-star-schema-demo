@@ -9,15 +9,7 @@ metrics_view: rill_orders_metrics
 dimensions: '*'
 measures: '*'
 time_ranges:
-  - PT6H
-  - PT24H
-  - P7D
-  - P14D
-  - P4W
-  - P3M
   - P12M
-  - rill-TD
-  - rill-WTD
   - rill-MTD
   - rill-QTD
   - rill-YTD
@@ -39,3 +31,4 @@ defaults:
     - total_revenue_measure
   dimensions:
     - product_category_name_english
+  time_range: P12M
