@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: orders
+    description: "Order dimension with status and delivery dates."
+    columns:
+      - name: _key_order_id
+        description: "Surrogate key for the order."
+      - name: order_id
+        description: "Unique identifier of the order."
+      - name: order_status
+        description: "Current status of the order."
+      - name: order_purchase_timestamp
+        description: "Timestamp when the order was created."
+      - name: order_approved_at
+        description: "Timestamp when the order payment was approved."
+      - name: order_delivered_carrier_date
+        description: "Timestamp when the order was handed to the carrier."
+      - name: order_delivered_customer_date
+        description: "Timestamp when the customer received the order."
+      - name: order_estimated_delivery_date
+        description: "Estimated delivery date at time of purchase."

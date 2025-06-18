@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: users
+    description: "User dimension created from distinct customer identifiers."
+    columns:
+      - name: _key_user_id
+        description: "Surrogate key for the user."
+      - name: user_id
+        description: "Identifier shared across multiple orders for the same user."
+      - name: user_name
+        description: "Name of the user if available."
+      - name: user_email
+        description: "Email address of the user if available."
+      - name: user_phone
+        description: "Phone number of the user if available."

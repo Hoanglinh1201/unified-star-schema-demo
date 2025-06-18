@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: order_items
+    description: "Order item dimension."
+    columns:
+      - name: _key_order_item_id
+        description: "Surrogate key for the order item."
+      - name: order_item_id
+        description: "Unique identifier for an item within an order."
+      - name: shipping_limit_date
+        description: "Latest date for the seller to ship the item."
+      - name: price
+        description: "Item price paid by the customer."
+      - name: freight_value
+        description: "Freight cost associated with the item."
