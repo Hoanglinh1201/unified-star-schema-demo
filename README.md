@@ -51,16 +51,16 @@ This repository implements the methology using:
 
 ## Building the models
 
-Run the dbt project from the `dbt` directory:
+Run the dbt project, from root folder
 ```bash
 cd dbt
 dbt run    # build the tables
 ```
-The profile in `dbt/profiles.yml` points to the DuckDB database created in the previous step.
 
 ## Exploring the data
-To launch Rill dashboards:
+To launch Rill dashboards, from the root folder
 ```bash
+cd rill
 rill start
 ```
 
