@@ -25,3 +25,6 @@ models:
     mart:
       materialized: table
       schema: mart
+    rill:
+      materialized: table
+      schema: mart

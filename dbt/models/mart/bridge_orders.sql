@@ -1,5 +1,4 @@
 with
-
 /*
 -- Bridge Keys
 _key_order_id
@@ -13,7 +12,6 @@ _key_customer_id
 _key_customer_geo_id
 _key_user_id
 */
-
 orders as (
 
     select
