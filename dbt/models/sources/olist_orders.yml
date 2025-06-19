@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: olist
+    description: "Raw tables from the Brazilian E-Commerce Public Dataset by Olist"
+    schema: _LANDING
+    tables:
+      - name: orders
+        identifier: olist_orders_dataset
+        description: "Main orders table containing order status and timeline columns."
+        columns:
+          - name: order_id
+            description: "Unique identifier of the order"
+          - name: customer_id
+            description: "Identifier of the customer who made the order"
+          - name: order_status
+            description: "Current status of the order"
+          - name: order_purchase_timestamp
+            description: "When the order purchase was made"
+          - name: order_approved_at
+            description: "When the payment was approved"
+          - name: order_delivered_carrier_date
+            description: "When the order was handed to the carrier"
+          - name: order_delivered_customer_date
+            description: "When the customer received the order"
+          - name: order_estimated_delivery_date
+            description: "Estimated delivery date at purchase time"

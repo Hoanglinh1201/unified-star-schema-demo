@@ -1,0 +1,5 @@
+type: source
+
+connector: "duckdb"
+db: "../data/olist.duckdb"
+sql: "select * from mart.uss_orders"

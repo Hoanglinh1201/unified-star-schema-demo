@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: olist
+    description: "Translates the product_category_name to english."
+    schema: _LANDING
+    tables:
+      - name: product_category_name_translation
+        identifier: product_category_name_translation
+        description: "Translation of product categories to English."
+        columns:
+          - name: product_category_name
+            description: "Original category name in Portuguese"
+          - name: product_category_name_english
+            description: "Translated category name in English"

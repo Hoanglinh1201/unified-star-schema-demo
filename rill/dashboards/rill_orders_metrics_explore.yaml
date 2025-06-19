@@ -1,0 +1,34 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/explore-dashboards
+
+type: explore
+
+display_name: "Olist Store"
+metrics_view: rill_orders_metrics
+
+dimensions: '*'
+measures: '*'
+time_ranges:
+  - P12M
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC
+defaults:
+  measures:
+    - average_order_value_measure
+    - average_payment_installments_measure
+    - average_payment_value_measure
+    - average_review_score_measure
+    - average_time_to_delivery_measure
+    - total_orders_measure
+    - total_payment_value_measure
+    - total_products_sold_measure
+    - total_revenue_measure
+  dimensions:
+    - product_category_name_english
+  time_range: P12M

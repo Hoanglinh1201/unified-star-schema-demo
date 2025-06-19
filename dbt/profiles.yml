@@ -2,7 +2,7 @@ dbt_uss_demo:
   outputs:
     dev:
       type: duckdb
-      path: ../data/aj_job_market.duckdb
+      path: ../data/olist.duckdb
       threads: 1
 
   target: dev

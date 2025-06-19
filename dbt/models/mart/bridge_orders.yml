@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: bridge_orders
+    description: "Bridge table that maps each entity involved in an order to a single row."
+    columns:
+      - name: uss_stage
+        description: "Type of record loaded into the bridge (e.g., Order, Customer, Seller)."
+      - name: _key_order_id
+        description: "Bridge key for the order."
+      - name: _key_product_id
+        description: "Bridge key for the product."
+      - name: _key_order_item_id
+        description: "Bridge key for the order item."
+      - name: _key_order_payment_id
+        description: "Bridge key for the order payment."
+      - name: _key_order_review_id
+        description: "Bridge key for the order review."
+      - name: _key_seller_id
+        description: "Bridge key for the seller."
+      - name: _key_customer_id
+        description: "Bridge key for the customer."
+      - name: _key_user_id
+        description: "Bridge key for the user."

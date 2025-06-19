@@ -1,0 +1,9 @@
+compiler: rillv1
+
+display_name: "Rill Unified Star Schema Demo"
+description: "A demo project for Rill's Unified Star Schema (USS) pattern, showcasing how to build a data model that integrates multiple sources into a unified schema."
+# These are example mock users to test your security policies.
+# Learn more: https://docs.rilldata.com/manage/security
+mock_users:
+- email: john@yourcompany.com
+- email: jane@partnercompany.com

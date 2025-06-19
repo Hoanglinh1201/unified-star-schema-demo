@@ -10,7 +10,7 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-clean-targets:        
+clean-targets:
   - "target"
   - "dbt_packages"
 
@@ -20,13 +20,8 @@ clean-targets:
 models:
   dbt_uss_demo:
     staging:
-      +materialized: table
-      +schema: staging
-    core:
-      +materialized: table
-      +schema: core
-    presentation:
-      +materialized: view
-      +schema: presentation
-    
-
+      materialized: view
+      schema: staging
+    mart:
+      materialized: table
+      schema: mart

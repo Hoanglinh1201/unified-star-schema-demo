@@ -1,0 +1,138 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Customer records with stable user identifier and link to geolocation."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for the customer in Olist."
+      - name: user_id
+        description: "Identifier used to track a customer across multiple orders."
+      - name: customer_zip_code_prefix
+        description: "Zip code prefix referencing the customer's location."
+      - name: customer_city
+        description: "City where the customer is located."
+      - name: customer_state
+        description: "State where the customer is located."
+
+  - name: stg_order_items
+    description: "Items belonging to each order with pricing and shipment info."
+    columns:
+      - name: order_item_id
+        description: "Hash key for the combination of order and item sequence."
+      - name: order_id
+        description: "Identifier of the order containing the item."
+      - name: sequential_item_number
+        description: "Sequence number of the item within the order."
+      - name: product_id
+        description: "Identifier of the purchased product."
+      - name: seller_id
+        description: "Seller that provided the product."
+      - name: shipping_limit_date
+        description: "Latest date the seller should hand the item to the carrier."
+      - name: price
+        description: "Item price paid by the customer."
+      - name: freight_value
+        description: "Freight cost charged for the item."
+
+  - name: stg_order_payments
+    description: "Payments registered for orders. One row per payment installment."
+    columns:
+      - name: payment_id
+        description: "Hash key for the order payment record."
+      - name: order_id
+        description: "Order associated with this payment."
+      - name: payment_sequential
+        description: "Sequence number of the payment for the order."
+      - name: payment_type
+        description: "Type of payment such as credit card or voucher."
+      - name: payment_installments
+        description: "Number of installments for the payment."
+      - name: payment_value
+        description: "Monetary value paid in this installment."
+
+  - name: stg_order_reviews
+    description: "Customer reviews and ratings for orders."
+    columns:
+      - name: review_id
+        description: "Unique review identifier."
+      - name: order_id
+        description: "Identifier of the reviewed order."
+      - name: review_score
+        description: "Numeric rating from the customer."
+      - name: review_comment_title
+        description: "Optional title for the review."
+      - name: review_comment_message
+        description: "Free text message left by the customer."
+      - name: review_creation_date
+        description: "When the review was submitted."
+      - name: review_answer_timestamp
+        description: "When the seller or platform responded to the review."
+
+  - name: stg_orders
+    description: "Order details including status and delivery timestamps."
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order."
+      - name: customer_id
+        description: "Customer who placed the order."
+      - name: order_status
+        description: "Current status of the order."
+      - name: order_purchase_timestamp
+        description: "Timestamp when the purchase was made."
+      - name: order_approved_at
+        description: "Timestamp when the payment was approved."
+      - name: order_delivered_carrier_date
+        description: "Timestamp when the order was handed to the carrier."
+      - name: order_delivered_customer_date
+        description: "Timestamp when the customer received the order."
+      - name: order_estimated_delivery_date
+        description: "Estimated delivery date provided at purchase time."
+
+  - name: stg_products
+    description: "Catalog of products with size and weight attributes."
+    columns:
+      - name: product_id
+        description: "Unique product identifier."
+      - name: product_category_name
+        description: "Product category in Portuguese."
+      - name: product_category_name_english
+        description: "Translated product category name in English."
+      - name: product_name_lenght
+        description: "Length of the product name text."
+      - name: product_description_lenght
+        description: "Length of the product description text."
+      - name: product_photos_qty
+        description: "Number of product photographs available."
+      - name: product_weight_g
+        description: "Product weight in grams."
+      - name: product_length_cm
+        description: "Product package length in centimeters."
+      - name: product_height_cm
+        description: "Product package height in centimeters."
+      - name: product_width_cm
+        description: "Product package width in centimeters."
+
+  - name: stg_sellers
+    description: "Seller records linked to their main geolocation."
+    columns:
+      - name: seller_id
+        description: "Unique identifier for the seller."
+      - name: seller_zip_code_prefix
+        description: "Zip code prefix where the seller is located."
+      - name: seller_city
+        description: "City where the seller is located."
+      - name: seller_state
+        description: "State where the seller is located."
+
+  - name: stg_users
+    description: "Distinct user identifiers derived from customers."
+    columns:
+      - name: user_id
+        description: "Stable identifier for a user across purchases."
+      - name: user_name
+        description: "Name of the user (placeholder null value)."
+      - name: user_email
+        description: "Email of the user (placeholder null value)."
+      - name: user_phone
+        description: "Phone number of the user (placeholder null value)."

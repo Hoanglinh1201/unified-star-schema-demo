@@ -1,0 +1,168 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+version: 1
+type: metrics_view
+
+display_name: Rill Orders Metrics
+model: rill_orders
+timeseries: order_purchase_timestamp
+
+dimensions:
+  - name: order_id
+    display_name: Order Id
+    column: order_id
+    description: Unique Order ID
+  - name: order_status
+    display_name: Order Status
+    column: order_status
+    description: Status of the order. Accepted values are 'delivered', 'shipped',
+      'canceled', 'created', 'invoiced', 'processing', 'unavailable'.
+  - name: order_item_id
+    display_name: Order Item Id
+    column: order_item_id
+    description: Unique Order Item ID, which is a combination of order_id and item sequence.
+  - name: customer_id
+    display_name: Customer Id
+    column: customer_id
+    description: Unique Customer ID per order.
+  - name: customer_city
+    display_name: Customer City
+    column: customer_city
+    description: City of the customer.
+  - name: customer_state
+    display_name: Customer State
+    column: customer_state
+    description: State of the customer.
+  - name: seller_id
+    display_name: Seller Id
+    column: seller_id
+    description: Unique Seller ID.
+  - name: seller_city
+    display_name: Seller City
+    column: seller_city
+    description: City of the seller.
+  - name: seller_state
+    display_name: Seller State
+    column: seller_state
+    description: State of the seller.
+  - name: product_id
+    display_name: Product Id
+    column: product_id
+  - name: product_category_name
+    display_name: Product Category Name
+    column: product_category_name
+    description: Original name of the product category.
+  - name: product_category_name_english
+    display_name: Product Category Name English
+    column: product_category_name_english
+    description: English name of the product category.
+  - name: review_id
+    display_name: Review Id
+    column: review_id
+    description: Unique Review ID.
+  - name: review_comment_title
+    display_name: Review Comment Title
+    column: review_comment_title
+    description: Comment title from the review left by the customer, in Portuguese.
+  - name: review_comment_message
+    display_name: Review Comment Message
+    column: review_comment_message
+    description: Comment message from the review left by the customer, in Portuguese.
+  - name: payment_id
+    display_name: Payment Id
+    column: payment_id
+    description: Unique Payment ID, which is a combination of order_id and payment sequence.
+  - name: payment_type
+    display_name: Payment Type
+    column: payment_type
+    description: Type of payment used for the order. Values are 'credit_card',
+      'debit_card', 'boleto', 'voucher'.
+  - name: payment_installments
+    display_name: Payment Installments
+    column: payment_installments
+    description: Number of installments used for the payment.
+  - name: review_score
+    display_name: Review Score
+    column: review_score
+    description: Score given by the customer in the review, ranging from 1 to 5.
+
+measures:
+  - name: total_orders_measure
+    display_name: Total Orders
+    expression: COUNT(DISTINCT order_id)
+    description: The total number of orders placed.
+    format_preset: humanize
+  - name: delivered_rate_measure
+    display_name: Delivered Rate
+    expression: ROUND(100*(COUNT( DISTINCT CASE WHEN order_status = 'delivered' THEN order_id END) / COUNT(DISTINCT order_id)),2)::FLOAT
+    description: The percentage of orders that have been delivered.
+    format_preset: percent
+  - name: review_rate_measure
+    display_name: Review Rate
+    expression: ROUND(100*(COUNT(DISTINCT order_id) FILTER (WHERE review_score IS NOT NULL) / COUNT(DISTINCT order_id)),2)::FLOAT
+    description: The total number of orders that have received a review.
+    format_preset: humanize
+  - name: total_revenue_measure
+    display_name: Total Revenue
+    expression: SUM(case when order_status = 'delivered' then price else 0 end)
+    description: The total revenue generated from all delivered orders.
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: average_order_value_measure
+    display_name: Average Order Value
+    expression: (SUM(price) / COUNT(DISTINCT order_id))::FLOAT
+    description: The average value of an order.
+    format_preset: humanize
+  - name: total_freight_value_measure
+    display_name: Total Freight Value
+    expression: SUM(freight_value)
+    description: The total freight value for all orders.
+    format_preset: humanize
+  - name: average_freight_value_measure
+    display_name: Average Freight Per Order
+    expression: SUM(freight_value) / COUNT(DISTINCT order_id)::FLOAT
+    description: The average freight value per order.
+    format_preset: humanize
+  - name: total_payment_value_measure
+    display_name: Total Payment Value
+    expression: SUM(payment_value)
+    description: The total payment value received from all orders.
+    format_preset: humanize
+  - name: average_payment_value_measure
+    display_name: Average Payment Value
+    expression: SUM(payment_value) / COUNT(DISTINCT order_id)::FLOAT
+    description: The average payment value per order.
+    format_preset: humanize
+  - name: total_products_sold_measure
+    display_name: Total Products Sold
+    expression: COUNT(CASE WHEN order_item_id IS NOT null THEN product_id END)
+    description: The total number of products sold.
+    format_preset: humanize
+  - name: average_review_score_measure
+    display_name: Average Review Score
+    expression: AVG(review_score)
+    description: The average score of all product reviews.
+    format_preset: humanize
+  - name: average_payment_installments_measure
+    display_name: Average Payment Installments
+    expression: SUM(payment_installments) / COUNT(DISTINCT payment_id)::FLOAT
+    description: The average number of installments used for payments.
+    format_preset: humanize
+  - name: average_time_to_delivery_measure
+    display_name: Average Time to Delivery
+    expression: AVG(DATEDIFF('day', order_purchase_timestamp, order_delivered_customer_date))
+    description: The average time taken for orders to be delivered.
+    format_preset: humanize
+  - name: total_payment_measure
+    display_name: Total Payment
+    expression: COUNT(DISTINCT payment_id)
+    description: The total payment amount received.
+    format_preset: humanize
+  - name: time_to_review_measure
+    display_name: Time to Review
+    expression: AVG(DATEDIFF('day', order_delivered_customer_date, review_answer_timestamp))
+    description: The average time taken for customers to leave a review after delivery.
+    format_preset: humanize
+smallest_time_grain: day

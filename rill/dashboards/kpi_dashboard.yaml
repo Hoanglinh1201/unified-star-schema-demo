@@ -1,0 +1,189 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/canvas-dashboards
+
+type: canvas
+display_name: "Canvas Dashboard"
+defaults:
+  time_range: P24M
+  comparison_mode: time
+rows:
+  - items:
+      - markdown:
+          alignment:
+            horizontal: left
+            vertical: top
+          content: >
+            # 🛒 Overview
+
+
+            This interactive report is built on the Unified Star Schema using
+            the Olist e-commerce dataset, providing a holistic view of customer
+            behavior, order patterns, payment preferences, and review
+            sentiments.
+          description: ""
+          title: ""
+        width: 12
+    height: 40px
+  - items:
+      - kpi_grid:
+          comparison:
+            - percent_change
+            - delta
+          measures:
+            - total_orders_measure
+            - total_revenue_measure
+            - average_order_value_measure
+            - average_time_to_delivery_measure
+            - delivered_rate_measure
+          metrics_view: rill_orders_metrics
+          sparkline: bottom
+        width: 12
+    height: 181px
+  - items:
+      - leaderboard:
+          dimensions:
+            - seller_city
+          measures:
+            - total_products_sold_measure
+            - total_revenue_measure
+          metrics_view: rill_orders_metrics
+          num_rows: 10
+          title: Top City By Product Sold
+          dimension_filters: product_id NIN (null)
+        width: 6
+      - leaderboard:
+          dimensions:
+            - product_category_name
+          measures:
+            - total_revenue_measure
+            - total_orders_measure
+          metrics_view: rill_orders_metrics
+          num_rows: 10
+          title: Top 10 Product by Revenue
+          dimension_filters: product_id NIN (null)
+        width: 6
+    height: 40px
+  - items:
+      - markdown:
+          alignment:
+            horizontal: left
+            vertical: top
+          content: |-
+            # ⭐ Reviews
+
+            Analyze customer feedback through review scores and comments
+        width: 12
+    height: 40px
+  - items:
+      - kpi_grid:
+          comparison:
+            - delta
+            - percent_change
+          measures:
+            - average_review_score_measure
+            - time_to_review_measure
+            - review_rate_measure
+          metrics_view: rill_orders_metrics
+          sparkline: bottom
+        width: 12
+    height: 40px
+  - items:
+      - stacked_bar:
+          color:
+            field: review_score
+            type: nominal
+            legendOrientation: none
+          metrics_view: rill_orders_metrics
+          title: Delivery Time by Review Score
+          x:
+            field: review_score
+            limit: 20
+            sort: -y
+            type: nominal
+            labelAngle: 360
+            showAxisTitle: true
+          y:
+            field: average_time_to_delivery_measure
+            type: quantitative
+            zeroBasedOrigin: false
+        width: 12
+    height: 40px
+  - items:
+      - markdown:
+          alignment:
+            horizontal: left
+            vertical: middle
+          content: >
+            # 💳 Payment
+
+
+            Understand how customers pay for their orders — including payment
+            types, total values, and installment behavior
+        width: 12
+    height: 40px
+  - items:
+      - line_chart:
+          color:
+            field: payment_type
+            type: nominal
+            legendOrientation: bottom
+          dimension_filters: payment_type IN ('boleto','credit_card','debit_card','voucher')
+          metrics_view: rill_orders_metrics
+          x:
+            field: order_purchase_timestamp
+            limit: 20
+            sort: -y
+            type: temporal
+          y:
+            field: average_payment_value_measure
+            type: quantitative
+            zeroBasedOrigin: true
+          title: "Average Payment Value "
+        width: 4
+      - donut_chart:
+          color:
+            field: payment_type
+            limit: 10
+            type: nominal
+          innerRadius: 50
+          measure:
+            field: total_payment_measure
+            type: quantitative
+          metrics_view: rill_orders_metrics
+          title: Payment Type
+        width: 4
+      - bar_chart:
+          color: hsl(246, 66%, 50%)
+          description: ""
+          metrics_view: rill_orders_metrics
+          title: Payment Installment Preference
+          x:
+            field: payment_installments
+            limit: 20
+            sort: -y
+            type: nominal
+          y:
+            field: total_payment_measure
+            type: quantitative
+            zeroBasedOrigin: true
+        width: 4
+    height: 320px
+time_ranges:
+  - P12M
+time_zones:
+  - UTC
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+theme:
+  colors:
+    primary: hsl(39, 100%, 50%)
+    secondary: hsl(229, 73%, 50%)

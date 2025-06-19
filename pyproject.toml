@@ -1,7 +1,7 @@
 [project]
 name = "unified-star-schema-demo"
 version = "0.1.0"
-description = "Demostraterate the unified star schema approach with dbt and lightdash"
+description = "A demo project for the Unified Star Schema (USS) with dbt and Rill"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -10,4 +10,56 @@ dependencies = [
     "lightdash>=0.2.4",
     "duckdb>=0.8.0",
     "rich==13.7.1",
+    "sqlfluff-templater-dbt>=3.4.1",
+    "ruff>=0.11.13",
+]
+
+[tool.ruff]
+fix = true
+output-format = "github"
+target-version = "py313"
+
+lint.ignore = [
+    # Line too long (E501)
+    # 1. black does not format comments
+    #    https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#comments
+    # 2. long links in doc strings are an issue
+    "E501",
+    # flake8-builtins
+    # the likelihood of running into an issue when shadowing a buildin
+    # with a class attribute is very low
+    "A003",
+    # Limiting the length of error messages isn't particularly useful
+    "TRY003",
+    "TRY002",
+    "G004",
+]
+lint.select = [
+    "A",   # flake8-builtin"
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "C90", # mccabe
+    "E",   # flake8
+    "ERA", # eradicate
+    "F",   # Pyflakes
+    "G",   # flake8-logging-format
+    "I",   # isort
+    "N",   # pep8-naming
+    "RUF", # ruff
+    "UP",  # pyupgrade
+    "TRY", # tryceratops
+    "T10", # flake8-debugger
+]
+
+[tool.ruff.lint.flake8-comprehensions]
+allow-dict-calls-with-keyword-arguments = true
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.ruff.lint.pep8-naming]
+classmethod-decorators = [
+    "classmethod",
+    "pydantic.validator",
+    "pydantic.root_validator",
 ]

@@ -1,0 +1,84 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: mixed-line-ending
+
+  - repo: local
+    hooks:
+      - id: ruff-formatter
+        name: ruff formatter
+        entry: uv run --active ruff format .
+        language: system
+        types: [python]
+      - id: ruff-linter
+        name: ruff linter
+        language: system
+        types: [python]
+        entry: uv run --active ruff check .
+
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 3.4.1
+    hooks:
+      - id: sqlfluff-lint
+        args:
+          - dbt/models
+          - --dialect=duckdb
+          - --config=.sqlfluff
+        additional_dependencies:
+          - sqlfluff-templater-dbt
+          - dbt-duckdb
+      - id: sqlfluff-fix
+        args:
+          - dbt/models
+          - --dialect=duckdb
+          - --config=.sqlfluff
+        additional_dependencies:
+          - sqlfluff-templater-dbt
+          - dbt-duckdb
+
+  - repo: https://github.com/dbt-checkpoint/dbt-checkpoint
+    rev: v2.0.7
+    hooks:
+      - id: dbt-parse
+        args:
+          - --cmd-flags
+          - ++profiles-dir
+          - dbt
+          - ++project-dir
+          - dbt
+
+      # - id: dbt-docs-generate
+      #   args:
+      #     - --cmd-flags
+      #     - --profiles-dir
+      #     - dbt
+      #     - --project-dir
+      #     - dbt
+      #     - --no-compile
+
+      - id: check-script-semicolon
+        args:
+          - --manifest
+          - dbt/target/manifest.json
+
+      - id: check-script-has-no-table-name
+        args:
+          - --manifest
+          - dbt/target/manifest.json
+
+      # - id: check-model-has-all-columns
+      #   args:
+      #     - --manifest
+      #     - dbt/target/manifest.json
+      #     - --catalog
+      #     - dbt/target/catalog.json
+
+      - id: check-model-columns-have-desc
+        args:
+          - --manifest
+          - dbt/target/manifest.json

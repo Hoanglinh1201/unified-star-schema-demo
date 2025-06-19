@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: sellers
+    description: "Seller dimension."
+    columns:
+      - name: _key_seller_id
+        description: "Bridge key for the seller."
+      - name: seller_id
+        description: "Unique identifier of the seller in Olist."
+      - name: seller_zip_code_prefix
+        description: "Zip code prefix of the seller."
+      - name: seller_city
+        description: "City of the seller."
+      - name: seller_state
+        description: "State of the seller."

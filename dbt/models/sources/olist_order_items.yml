@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: olist
+    description: "Raw tables from the Brazilian E-Commerce Public Dataset by Olist"
+    schema: _LANDING
+    tables:
+      - name: order_items
+        identifier: olist_order_items_dataset
+        description: "Items within each order, linking products and sellers to orders."
+        columns:
+          - name: order_id
+            description: "Reference to the order"
+          - name: order_item_id
+            description: "Sequential ID for an item within an order"
+          - name: product_id
+            description: "Identifier of the purchased product"
+          - name: seller_id
+            description: "Identifier of the seller fulfilling the product"
+          - name: shipping_limit_date
+            description: "Deadline for the seller to ship the item"
+          - name: price
+            description: "Price paid for the item"
+          - name: freight_value
+            description: "Freight contribution for the item"

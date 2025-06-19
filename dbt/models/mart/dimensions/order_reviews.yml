@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: order_reviews
+    description: "Order review dimension."
+    columns:
+      - name: _key_order_review_id
+        description: "Surrogate key for the order review."
+      - name: review_id
+        description: "Identifier of the customer review."
+      - name: review_score
+        description: "Numeric review score given by the customer."
+      - name: review_comment_title
+        description: "Title of the review comment."
+      - name: review_comment_message
+        description: "Full text of the review comment."
+      - name: review_creation_date
+        description: "Date when the review was submitted."
+      - name: review_answer_timestamp
+        description: "Timestamp when the review received a reply."

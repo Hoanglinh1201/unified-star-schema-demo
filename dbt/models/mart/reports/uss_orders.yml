@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: uss_orders
+    description: "Fact table combining orders with related items, products, customers, sellers, geolocations, payments and reviews."
+    columns:
+      - name: uss_stage
+        description: "Type of record loaded into the fact table (e.g., Order, Item, Payment, Review)."
+      - name: order_id
+        description: "Unique identifier of the order."
+      - name: order_status
+        description: "Current status of the order."
+      - name: order_purchase_timestamp
+        description: "Timestamp when the order purchase was made."
+      - name: order_approved_at
+        description: "Timestamp when the payment was approved."
+      - name: order_delivered_carrier_date
+        description: "Timestamp when the order was handed to the carrier."
+      - name: order_delivered_customer_date
+        description: "Timestamp when the customer received the order."
+      - name: order_estimated_delivery_date
+        description: "Estimated delivery date informed at purchase."
+      - name: order_item_id
+        description: "Unique identifier for an item within the order."
+      - name: shipping_limit_date
+        description: "Deadline for the seller to ship the item."
+      - name: price
+        description: "Price paid for the item."
+      - name: freight_value
+        description: "Freight cost paid for the item."
+      - name: customer_id
+        description: "Identifier of the customer who placed the order."
+      - name: customer_city
+        description: "Customer city name."
+      - name: customer_state
+        description: "Customer state abbreviation."
+      - name: seller_id
+        description: "Identifier of the seller fulfilling the item."
+      - name: seller_city
+        description: "Seller city name."
+      - name: seller_state
+        description: "Seller state abbreviation."
+      - name: product_id
+        description: "Identifier of the purchased product."
+      - name: product_category_name
+        description: "Product category in Portuguese."
+      - name: product_name_lenght
+        description: "Length of the product name."
+      - name: product_description_lenght
+        description: "Length of the product description."
+      - name: product_photos_qty
+        description: "Number of product photos available."
+      - name: product_weight_g
+        description: "Weight of the product in grams."
+      - name: product_length_cm
+        description: "Length of the product in centimeters."
+      - name: product_height_cm
+        description: "Height of the product in centimeters."
+      - name: product_width_cm
+        description: "Width of the product in centimeters."
+      - name: product_category_name_english
+        description: "Product category translated to English."
+      - name: review_id
+        description: "Identifier of the review left by the customer."
+      - name: review_score
+        description: "Score rating given by the customer."
+      - name: review_comment_title
+        description: "Title of the review comment."
+      - name: review_comment_message
+        description: "Content of the review comment."
+      - name: review_creation_date
+        description: "Date when the review was created."
+      - name: review_answer_timestamp
+        description: "Timestamp when the seller answered the review."
+      - name: payment_id
+        description: "Identifier of the payment record."
+      - name: payment_type
+        description: "Payment method used by the customer."
+      - name: payment_installments
+        description: "Number of installments for the payment."
+      - name: payment_value
+        description: "Total value paid in this payment record."

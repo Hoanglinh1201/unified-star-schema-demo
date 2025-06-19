@@ -1,5 +1,8 @@
+.DS_Store
 # Ignore .venv
 .venv/
 
-# Ignore data 
+# Ignore data
 data/
+logs/
+ui
