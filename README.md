@@ -95,4 +95,11 @@ Once launched, this is the how KPI would look like at http://localhost:9009/canv
    - `mart` models represent USS implementation with bridge and final dataset models.
 - `rill/` &ndash; example Rill configuration for dashboards and metrics
 
----
+## Contributing
+
+To keep the codebase clean and consistent, I use `pre-commit` hooks. This includes some dbt, sqlfluff, ruff and some minor formatters.
+
+```bash
+pip install pre-commit
+pre-commit install
+```
