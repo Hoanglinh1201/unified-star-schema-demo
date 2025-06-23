@@ -73,7 +73,7 @@ cd ../rill && rill start
 
 ## DBT
 * [`bridge_orders`](dbt/models/mart/bridge_orders.sql) becomes a central switchboard where all keys are stored. Entities connect through the bridge and do not point to others.
-* [`uss_orders`](dbt/models/mart/exposure/uss_orders.sql) is basically an implementation of the Bridge for Rill, where entities' attributes are joined to get exposed to the BI layer.
+* [`uss_orders`](dbt/models/mart/reports/uss_orders.sql) is basically an implementation of the Bridge for Rill, where entities' attributes are joined to get exposed to the BI layer.
 * The connection between two tables is always oriented, eliminating loops
 
 <img src="assets/dbt_graph.png" alt="" width="800"/>
@@ -82,7 +82,7 @@ cd ../rill && rill start
 * [KPI Dashboard](rill/dashboards/kpi_dashboard.yaml) is built via UI and stored as code.
 * [Rill Metric Views](rill/metrics/rill_orders_metrics.yaml) contains all metric definitions.
 
-Once launched, this is the how KPI would look like at http://localhost:9009/canvas/kpi_dashboard
+Once launched, this is the how KPI would look like at http://localhost:9009/canvas/kpi_dashboard (only works once you start Rill)
 <img src="assets/rill_dashboard.png" alt="" width="800"/>
 
 
